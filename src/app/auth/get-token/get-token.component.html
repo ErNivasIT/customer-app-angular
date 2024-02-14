@@ -1,0 +1,31 @@
+<div class="login-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" [(ngModel)]="userInfo.username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" [(ngModel)]="userInfo.password" required>
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Login</button>
+    </form>
+    <ng-template #responseModal let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Login Status</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <label id="lblMessage">{{messageResponse}}</label>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sr.No</th>
+            <th>Date</th>
+            <th>Temperature in (Celcius)</th>
+            <th>temperature (Ferunhite)</th>
+            <th>Summary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let record of weatherforecastList;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{record.date}}</td>
+            <td>{{record.temperatureC}}</td>
+            <td>{{record.temperatureF}}</td>
+            <td>{{record.summary}}</td>
+        </tr>
+    </tbody>
+</table>
+ 
