@@ -13,25 +13,27 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CustomersComponent {
   customersList!: any[];
-  customerForAdd!: customerviewmodel
+  customerForAdd: customerviewmodel={id:0,name:'',dob:'' }
   @ViewChild('addModal', { static: false }) addModal!: TemplateRef<any>;
   
   constructor(private customerApi: CustomerapiService, private modalService: NgbModal) {
-    customerApi.getCustomers()
-      .subscribe(p => {
-        this.customersList = p;
-        console.log(this.customersList);
-      });
+   this.getCustomers();
   }
   onSubmit(): void {
-    console.log(this.customerForAdd);
     this.customerApi.addCustomer(this.customerForAdd)
       .subscribe(p => {
-        console.log(p);
+        this.getCustomers();
       });
     ;
   }
   openModal(): void {
     this.modalService.open(this.addModal);
+  }
+  getCustomers()
+  {
+    this.customerApi.getCustomers()
+    .subscribe(p => {
+      this.customersList = p;
+    });
   }
 }
