@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { customerviewmodel } from '../models/customerviewmodel';
 import { FormsModule } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-customers',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,RouterModule ],
   templateUrl: './customers.component.html'
 })
 export class CustomersComponent {
