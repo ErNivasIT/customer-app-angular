@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+            <th>Order Date</th>
+            <th>Order Placed By</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td>{{order.id}}</td>
+            <td>{{order.qty}}</td>
+            <td>{{order.amount}}</td>
+            <td>{{order.order_Date | date:'dd-MMM-yyyy'}}</td>
+            <td>{{order.order_Placed_By}}</td>
+        </tr>
+    </tbody>
+</table>

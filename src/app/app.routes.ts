@@ -5,6 +5,7 @@ import { WeatherforecastComponent } from './weatherforecast/weatherforecast.comp
 import { CustomersComponent } from './customers/customers.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { authGuard } from './guards/auth.guard';
+import { CustomerOrdersComponent } from './orders/customer-orders/customer-orders.component';
 
 export const routes: Routes = [{ path: '', redirectTo: 'home', pathMatch: 'full' }, {
     path: "auth", component: GetTokenComponent
@@ -15,8 +16,10 @@ export const routes: Routes = [{ path: '', redirectTo: 'home', pathMatch: 'full'
     path: "weatherforecast", component: WeatherforecastComponent
 },
 {
-    path: "customers", component: CustomersComponent,canActivate:[authGuard]
+    path: "customers", component: CustomersComponent, canActivate: [authGuard]
 },
 {
     path: "edit-customer/:id", component: EditCustomerComponent
+}, {
+    path: "orders/:username", component: CustomerOrdersComponent
 }];

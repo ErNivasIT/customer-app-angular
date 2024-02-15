@@ -24,4 +24,7 @@ export class CustomerapiService {
   updateCustomer(id:number,customerToUpdate:customerviewmodel): Observable<any> {
     return this.httpClient.put(this.apiBaseUrl+"/api/Customers/updateCustomerById/"+id,customerToUpdate);
   }
+  getOrdersByUserName(username:string): Observable<any> {
+    return this.httpClient.get(this.apiBaseUrl+"/api/Orders/getOrdersByUserName/"+username);
+  }
 }

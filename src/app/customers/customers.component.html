@@ -6,7 +6,9 @@
             <th>Id</th>
             <th>Name</th>
             <th>DOB</th>
+            <th>Email</th>
             <th>Action</th>
+            <th>Orders</th>
         </tr>
     </thead>
     <tbody>
@@ -15,7 +17,9 @@
             <td>{{record.id}}</td>
             <td>{{record.name}}</td>
             <td>{{record.dob| date: 'dd-MMM-yyyy'}}</td>
+            <td>{{record.email}}</td>
             <td><a [routerLink]="['/edit-customer', record.id]" class="btn btn-danger"><i class="bi bi-pencil"></i></a></td>
+            <td><a [routerLink]="['/orders', record.email]" class="btn btn-danger"><i class="bi bi-book"></i></a></td>
         </tr>
     </tbody>
 </table>

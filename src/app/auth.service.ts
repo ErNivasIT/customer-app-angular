@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { userresponse } from './models/userresponse';
 import jwt_decode, { JwtPayload, jwtDecode } from 'jwt-decode';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +18,7 @@ export class AuthService {
       const token: string = localStorage.getItem('token') ?? '';
       const decoded = jwtDecode(token)  as JwtPayload;;
       console.log(decoded);
+      localStorage.setItem('username', decoded.sub || '');
       if (decoded.exp === undefined) {
         return false;
       }
