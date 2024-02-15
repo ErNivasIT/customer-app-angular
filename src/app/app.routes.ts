@@ -6,6 +6,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { authGuard } from './guards/auth.guard';
 import { CustomerOrdersComponent } from './orders/customer-orders/customer-orders.component';
+import { AddUserComponent } from './administration/add-user/add-user.component';
 
 export const routes: Routes = [{ path: '', redirectTo: 'home', pathMatch: 'full' }, {
     path: "auth", component: GetTokenComponent
@@ -22,4 +23,6 @@ export const routes: Routes = [{ path: '', redirectTo: 'home', pathMatch: 'full'
     path: "edit-customer/:id", component: EditCustomerComponent
 }, {
     path: "orders/:username", component: CustomerOrdersComponent
+}, {
+    path: "add-user", component: AddUserComponent
 }];
