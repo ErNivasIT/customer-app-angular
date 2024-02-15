@@ -18,13 +18,13 @@ export class AuthService {
       const decoded = jwtDecode(token)  as JwtPayload;;
       console.log(decoded);
       if (decoded.exp === undefined) {
-        return true;
+        return false;
       }
       const date = new Date(0);
       date.setUTCSeconds(decoded.exp);
-      return date.valueOf() < new Date().valueOf();
+      return date.valueOf() >= new Date().valueOf();
     } catch (error) {
-      return true;
+      return false;
     }
   }
 }
