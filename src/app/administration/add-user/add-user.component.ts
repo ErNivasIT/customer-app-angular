@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-user',
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
 export class AddUserComponent {
   registerForm!: FormGroup;
   roles = ['Admin', 'User', 'Guest'];
-  constructor(private userService: UsersService, private formBuilder: FormBuilder) {
+  constructor(private userService: UsersService, private formBuilder: FormBuilder,private router: Router) {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
       firstname: ['', Validators.required],
@@ -29,6 +30,10 @@ export class AddUserComponent {
     this.userService.addUser(this.registerForm.value)
     .subscribe(p => {
       console.log(p);
+      if(p.isSuccess)
+      {
+        this.router.navigate(['/all-users']);
+      }
     });
   }
   get form() {

@@ -7,7 +7,7 @@ import { customerviewmodel } from './models/customerviewmodel';
   providedIn: 'root'
 })
 export class CustomerapiService {
-  apiBaseUrl="https://localhost:7093"
+  apiBaseUrl="http://localhost/CustomersAPI"
   constructor(private httpClient: HttpClient) { }
   getWeatherforecast(): Observable<any> {
     return this.httpClient.get(this.apiBaseUrl+"/weatherforecast");

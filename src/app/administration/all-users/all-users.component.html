@@ -1,0 +1,26 @@
+<div class="text-right mb-2 mt-4">
+<a class="btn  btn-success" routerLink="/add-user"> <i class="bi bi-plus-circle"></i>&nbsp; Add New User</a></div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sr.No</th>
+            <th>User Unique Id</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>User Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let record of usersList;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{record.id}}</td>
+            <td>{{record.firstName}}</td>
+            <td>{{record.middleName}}</td>
+            <td>{{record.lastName}}</td>
+            <td>{{record.userName}}</td>
+            <td>{{record.email}}</td>
+        </tr>
+    </tbody>
+</table>
